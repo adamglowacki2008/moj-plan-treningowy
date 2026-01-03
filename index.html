@@ -3,165 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mój plan treningowy</title>
+<title>Mój Plan Treningowy</title>
 
 <style>
 body {
-    margin: 0;
-    font-family: system-ui, sans-serif;
-    background: #0f172a;
-    color: #f8fafc;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
 }
 
-header {
-    text-align: center;
-    padding: 20px;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.tabs {
-    display: flex;
-    justify-content: space-around;
-    background: #020617;
-    position: sticky;
-    top: 0;
-}
-
-.tabs button {
-    flex: 1;
-    padding: 14px;
-    background: none;
-    border: none;
-    color: #94a3b8;
-    font-size: 14px;
-}
-
-.tabs button.active {
-    color: #22c55e;
-    border-bottom: 3px solid #22c55e;
-}
-
-.section {
-    display: none;
-    padding: 16px;
-}
-
-.section.active {
-    display: block;
+.container {
+  max-width: 420px;
+  margin: auto;
+  padding: 20px;
 }
 
 .card {
-    background: #020617;
-    border-radius: 14px;
-    padding: 14px;
-    margin-bottom: 14px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
 }
 
-.card h3 {
-    margin: 0 0 8px;
-    color: #22c55e;
+h1, h2 {
+  text-align: center;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #00c853;
+  color: black;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 10px;
+  border: none;
 }
 
 .exercise {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    padding: 6px 0;
-    border-bottom: 1px solid #1e293b;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
-.exercise:last-child {
-    border-bottom: none;
+
+.hidden {
+  display: none;
+}
+
+.logout {
+  background: #ff5252;
 }
 </style>
 </head>
 
 <body>
 
-<header>🏋️ Mój plan treningowy</header>
+<div class="container">
 
-<div class="tabs">
-<button class="active" onclick="show(0)">Dzień 1</button>
-<button onclick="show(1)">Dzień 2</button>
-<button onclick="show(2)">Dzień 3</button>
-<button onclick="show(3)">Suplementy</button>
+<!-- LOGOWANIE -->
+<div id="loginCard" class="card">
+  <h2>Logowanie</h2>
+  <input id="login" placeholder="Login">
+  <input id="password" type="password" placeholder="Hasło">
+  <button onclick="login()">Zaloguj</button>
 </div>
 
-<div class="section active">
+<!-- APLIKACJA -->
+<div id="app" class="hidden">
+
+<h1>🏋️‍♂️ Mój Plan Treningowy</h1>
 
 <div class="card">
-<h3>PLECY</h3>
-<div class="exercise"><span>Ściąganie drążka</span><span>4×8 • 50 kg</span></div>
-<div class="exercise"><span>Wiosłowanie maszyna</span><span>3×8 • 45 kg</span></div>
-<div class="exercise"><span>Uchwyt V</span><span>3×8 • 40 kg</span></div>
-<div class="exercise"><span>Pullover wyciąg</span><span>3×8 • 30 kg</span></div>
-</div>
-
-<div class="card">
-<h3>TRICEPS</h3>
-<div class="exercise"><span>Wyciąg prostowanie</span><span>4×8 • 30 kg</span></div>
-<div class="exercise"><span>Francuskie hantel</span><span>3×8 • 18 kg</span></div>
-<div class="exercise"><span>Poręcze maszyna</span><span>3×8 • -25 kg</span></div>
-</div>
-</div>
-
-<div class="section">
-
-<div class="card">
-<h3>BICEPS</h3>
-<div class="exercise"><span>Maszyna biceps</span><span>4×8 • 30 kg</span></div>
-<div class="exercise"><span>Hantle skos</span><span>3×8 • 12 kg</span></div>
-<div class="exercise"><span>Młotkowe</span><span>3×8 • 12 kg</span></div>
-<div class="exercise"><span>Wyciąg dolny</span><span>3×8 • 25 kg</span></div>
+<h2>Poniedziałek – Plecy + Triceps</h2>
+<div class="exercise">Ściąganie drążka do klatki – 3x8 (35–40 kg)</div>
+<div class="exercise">Wiosłowanie siedząc – 3x8 (35 kg)</div>
+<div class="exercise">Pullover na wyciągu – 3x8 (25 kg)</div>
+<div class="exercise">Prostowanie ramion na wyciągu – 3x8 (20–25 kg)</div>
+<div class="exercise">Triceps maszyna – 3x8 (25 kg)</div>
 </div>
 
 <div class="card">
-<h3>BRZUCH</h3>
-<div class="exercise"><span>Maszyna brzuch</span><span>4×8 • 35 kg</span></div>
-<div class="exercise"><span>Unoszenie nóg</span><span>3×8 • BW</span></div>
-<div class="exercise"><span>Plank</span><span>3×45 s</span></div>
-</div>
-</div>
-
-<div class="section">
-
-<div class="card">
-<h3>NOGI</h3>
-<div class="exercise"><span>Suwnica</span><span>4×8 • 100 kg</span></div>
-<div class="exercise"><span>Prostowanie nóg</span><span>3×8 • 40 kg</span></div>
-<div class="exercise"><span>Uginanie nóg</span><span>3×8 • 35 kg</span></div>
-<div class="exercise"><span>Łydki maszyna</span><span>4×8 • 50 kg</span></div>
+<h2>Środa – Biceps + Brzuch</h2>
+<div class="exercise">Uginanie ramion na wyciągu – 3x8 (20 kg)</div>
+<div class="exercise">Maszyna biceps – 3x8 (25 kg)</div>
+<div class="exercise">Uginanie młotkowe hantlami – 3x8 (8–10 kg)</div>
+<div class="exercise">Brzuch maszyna – 3x8 (25 kg)</div>
+<div class="exercise">Plank – 3x 30–45 s</div>
 </div>
 
 <div class="card">
-<h3>KLATKA</h3>
-<div class="exercise"><span>Chest press</span><span>4×8 • 45 kg</span></div>
-<div class="exercise"><span>Hantle ławka</span><span>3×8 • 20 kg</span></div>
-<div class="exercise"><span>Butterfly</span><span>3×8 • 35 kg</span></div>
-</div>
-</div>
-
-<div class="section">
-
-<div class="card">
-<h3>KREATYNA</h3>
-<p>5 g dziennie (4 kaps.)<br>
-Trening: po treningu<br>
-Nietrening: rano</p>
+<h2>Piątek – Nogi + Klatka</h2>
+<div class="exercise">Suwnica – 3x8 (80–100 kg)</div>
+<div class="exercise">Prostowanie nóg – 3x8 (30 kg)</div>
+<div class="exercise">Uginanie nóg – 3x8 (25 kg)</div>
+<div class="exercise">Chest press – 3x8 (35–40 kg)</div>
+<div class="exercise">Butterfly – 3x8 (30 kg)</div>
 </div>
 
 <div class="card">
-<h3>BIAŁKO</h3>
-<p>1 miarka (25 g)<br>
-Po każdym treningu</p>
+<h2>💊 Suplementacja</h2>
+<div class="exercise">Kreatyna: 5 g CODZIENNIE (po treningu lub rano)</div>
+<div class="exercise">Białko: 25–30 g po treningu</div>
 </div>
 
+<button class="logout" onclick="logout()">Wyloguj</button>
+
+</div>
 </div>
 
 <script>
-function show(i){
-document.querySelectorAll('.section').forEach((s,idx)=>s.classList.toggle('active',idx===i));
-document.querySelectorAll('.tabs button').forEach((b,idx)=>b.classList.toggle('active',idx===i));
+function login() {
+  const l = document.getElementById("login").value;
+  const p = document.getElementById("password").value;
+
+  if(l && p) {
+    localStorage.setItem("logged", "true");
+    showApp();
+  } else {
+    alert("Wpisz login i hasło");
+  }
+}
+
+function showApp() {
+  document.getElementById("loginCard").classList.add("hidden");
+  document.getElementById("app").classList.remove("hidden");
+}
+
+function logout() {
+  localStorage.removeItem("logged");
+  location.reload();
+}
+
+if(localStorage.getItem("logged") === "true") {
+  showApp();
 }
 </script>
 
