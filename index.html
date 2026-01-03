@@ -4,102 +4,166 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mój plan treningowy</title>
+
 <style>
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
     margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #0f172a;
+    color: #f8fafc;
+}
+
+header {
+    text-align: center;
     padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
 }
-h1 {
-    text-align: center;
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    background: #020617;
+    position: sticky;
+    top: 0;
 }
-h2 {
-    margin-top: 40px;
-    color: #222;
+
+.tabs button {
+    flex: 1;
+    padding: 14px;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 14px;
 }
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    background: white;
+
+.tabs button.active {
+    color: #22c55e;
+    border-bottom: 3px solid #22c55e;
 }
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-th {
-    background: #222;
-    color: white;
-}
+
 .section {
-    margin-bottom: 50px;
+    display: none;
+    padding: 16px;
 }
-.footer {
-    text-align: center;
-    color: #666;
-    margin-top: 40px;
+
+.section.active {
+    display: block;
+}
+
+.card {
+    background: #020617;
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 14px;
+}
+
+.card h3 {
+    margin: 0 0 8px;
+    color: #22c55e;
+}
+
+.exercise {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    padding: 6px 0;
+    border-bottom: 1px solid #1e293b;
+}
+.exercise:last-child {
+    border-bottom: none;
 }
 </style>
 </head>
+
 <body>
 
-<h1>🏋️ Mój plan treningowy</h1>
+<header>🏋️ Mój plan treningowy</header>
 
-<div class="section">
-<h2>Poniedziałek – Trening A</h2>
-<table>
-<tr><th>Ćwiczenie</th><th>Serie</th><th>Powtórzenia</th></tr>
-<tr><td>Suwnica</td><td>3</td><td>10</td></tr>
-<tr><td>Ściąganie drążka do klatki</td><td>3</td><td>10</td></tr>
-<tr><td>Chest press (maszyna)</td><td>4</td><td>10</td></tr>
-<tr><td>Unoszenie hantli bokiem</td><td>3</td><td>10</td></tr>
-<tr><td>Biceps – sztanga łamana</td><td>3</td><td>10</td></tr>
-<tr><td>Triceps – wyciąg</td><td>3</td><td>12</td></tr>
-<tr><td>Plank</td><td>3</td><td>30–60 s</td></tr>
-</table>
+<div class="tabs">
+<button class="active" onclick="show(0)">Dzień 1</button>
+<button onclick="show(1)">Dzień 2</button>
+<button onclick="show(2)">Dzień 3</button>
+<button onclick="show(3)">Suplementy</button>
+</div>
+
+<div class="section active">
+
+<div class="card">
+<h3>PLECY</h3>
+<div class="exercise"><span>Ściąganie drążka</span><span>4×8 • 50 kg</span></div>
+<div class="exercise"><span>Wiosłowanie maszyna</span><span>3×8 • 45 kg</span></div>
+<div class="exercise"><span>Uchwyt V</span><span>3×8 • 40 kg</span></div>
+<div class="exercise"><span>Pullover wyciąg</span><span>3×8 • 30 kg</span></div>
+</div>
+
+<div class="card">
+<h3>TRICEPS</h3>
+<div class="exercise"><span>Wyciąg prostowanie</span><span>4×8 • 30 kg</span></div>
+<div class="exercise"><span>Francuskie hantel</span><span>3×8 • 18 kg</span></div>
+<div class="exercise"><span>Poręcze maszyna</span><span>3×8 • -25 kg</span></div>
+</div>
 </div>
 
 <div class="section">
-<h2>Środa – Trening B</h2>
-<table>
-<tr><th>Ćwiczenie</th><th>Serie</th><th>Powtórzenia</th></tr>
-<tr><td>Przysiady (masa ciała / TRX)</td><td>3</td><td>12</td></tr>
-<tr><td>Wiosłowanie siedząc</td><td>3</td><td>10</td></tr>
-<tr><td>Wyciskanie hantli leżąc</td><td>3</td><td>10</td></tr>
-<tr><td>Wyciskanie hantli nad głowę</td><td>3</td><td>8</td></tr>
-<tr><td>Biceps młotkowy</td><td>3</td><td>10</td></tr>
-<tr><td>Triceps – hantel zza głowy</td><td>3</td><td>8–10</td></tr>
-<tr><td>Brzuch – spięcia</td><td>3</td><td>8</td></tr>
-</table>
+
+<div class="card">
+<h3>BICEPS</h3>
+<div class="exercise"><span>Maszyna biceps</span><span>4×8 • 30 kg</span></div>
+<div class="exercise"><span>Hantle skos</span><span>3×8 • 12 kg</span></div>
+<div class="exercise"><span>Młotkowe</span><span>3×8 • 12 kg</span></div>
+<div class="exercise"><span>Wyciąg dolny</span><span>3×8 • 25 kg</span></div>
+</div>
+
+<div class="card">
+<h3>BRZUCH</h3>
+<div class="exercise"><span>Maszyna brzuch</span><span>4×8 • 35 kg</span></div>
+<div class="exercise"><span>Unoszenie nóg</span><span>3×8 • BW</span></div>
+<div class="exercise"><span>Plank</span><span>3×45 s</span></div>
+</div>
 </div>
 
 <div class="section">
-<h2>Piątek – Trening C</h2>
-<table>
-<tr><th>Ćwiczenie</th><th>Serie</th><th>Powtórzenia</th></tr>
-<tr><td>Wykroki</td><td>3</td><td>10</td></tr>
-<tr><td>TRX – przyciąganie</td><td>3</td><td>10</td></tr>
-<tr><td>Pompki na ławce</td><td>3</td><td>10</td></tr>
-<tr><td>Unoszenie hantli w przód</td><td>3</td><td>10</td></tr>
-<tr><td>Biceps – linka dolna</td><td>3</td><td>10–12</td></tr>
-<tr><td>Triceps kickback</td><td>3</td><td>10–12</td></tr>
-</table>
+
+<div class="card">
+<h3>NOGI</h3>
+<div class="exercise"><span>Suwnica</span><span>4×8 • 100 kg</span></div>
+<div class="exercise"><span>Prostowanie nóg</span><span>3×8 • 40 kg</span></div>
+<div class="exercise"><span>Uginanie nóg</span><span>3×8 • 35 kg</span></div>
+<div class="exercise"><span>Łydki maszyna</span><span>4×8 • 50 kg</span></div>
+</div>
+
+<div class="card">
+<h3>KLATKA</h3>
+<div class="exercise"><span>Chest press</span><span>4×8 • 45 kg</span></div>
+<div class="exercise"><span>Hantle ławka</span><span>3×8 • 20 kg</span></div>
+<div class="exercise"><span>Butterfly</span><span>3×8 • 35 kg</span></div>
+</div>
 </div>
 
 <div class="section">
-<h2>💊 Suplementacja</h2>
-<table>
-<tr><th>Suplement</th><th>Dawkowanie</th><th>Kiedy</th></tr>
-<tr><td>Kreatyna – Olimp Mega Caps</td><td>4 kaps (5 g)</td><td>Codziennie</td></tr>
-<tr><td>Białko – Optimum Nutrition Whey</td><td>1 miarka (~25 g)</td><td>Po treningu</td></tr>
-</table>
+
+<div class="card">
+<h3>KREATYNA</h3>
+<p>5 g dziennie (4 kaps.)<br>
+Trening: po treningu<br>
+Nietrening: rano</p>
 </div>
 
-<div class="footer">
-<p>💧 Woda: 2,5–4 L dziennie | 🍗 Białko: 100–120 g dziennie</p>
+<div class="card">
+<h3>BIAŁKO</h3>
+<p>1 miarka (25 g)<br>
+Po każdym treningu</p>
 </div>
+
+</div>
+
+<script>
+function show(i){
+document.querySelectorAll('.section').forEach((s,idx)=>s.classList.toggle('active',idx===i));
+document.querySelectorAll('.tabs button').forEach((b,idx)=>b.classList.toggle('active',idx===i));
+}
+</script>
 
 </body>
 </html>
